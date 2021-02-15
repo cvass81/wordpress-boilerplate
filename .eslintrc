@@ -1,0 +1,62 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "arrow-parens": 0,
+    "camelcase": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ],
+    "consistent-return": 0,
+    "curly": [2, "multi-line"],
+    "indent": 0,
+    "linebreak-style": 0,
+    "max-len": 0,
+    "no-shadow": "off",
+    "no-continue": 0,
+    "no-mixed-operators": 0,
+    "no-unused-vars": "off",
+    "no-useless-concat": 0,
+    "no-useless-constructor": 0,
+    "prefer-template": 0,
+    "object-curly-spacing": 0,
+    "no-console": 0,
+    "no-lone-blocks": 0,
+    "no-nested-ternary": 0,
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "no-return-assign": 0,
+    "import/extensions": 0,
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "no-use-before-define": "off",
+    "one-var": 0,
+    "radix": ["error", "as-needed"],
+    "quote-props": [2, "as-needed"]
+  }
+}
