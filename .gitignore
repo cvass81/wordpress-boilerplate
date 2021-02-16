@@ -1,0 +1,19 @@
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+*.iml
+
+## Directory-based project format:
+.idea/
+.history/
+
+# Build
+node_modules/
+
+# FrontEnd Assets (Webpack)
+/src/
+
+# Logs
+logs
+*.log*
+
+# Flywheel configuration
+/conf/

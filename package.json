@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "prettier": "prettier --write **/*.{js,jsx,css,html,php}"
   },
   "author": "",
   "license": "ISC",
@@ -46,5 +47,10 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@material/icon-button": "^10.0.0",
+    "@material/layout-grid": "^10.0.0",
+    "@material/top-app-bar": "^10.0.0",
+    "normalize.css": "^8.0.1"
+  }
 }
