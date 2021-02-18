@@ -7,18 +7,40 @@ module.exports = {
   entry: ['./src/app.scss', './src/app.js'],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(
-      __dirname,
-      './app/public/wp-content/themes/twentytwentyone/',
-    ),
+    path: path.resolve(__dirname, './app/public/wp-content/themes/cv/assets/'),
     publicPath: '',
   },
   mode: 'development',
+  target: ['web', 'es5'],
   module: {
     rules: [
       {
         test: /\.(png|jpg)$/,
-        type: 'asset/resource',
+        use: ['file-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              // make loader to behave like url-loader, for all svg files
+              encoding: 'base64',
+            },
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false },
+              ],
+            },
+          },
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
@@ -53,6 +75,7 @@ module.exports = {
             },
           },
         ],
+        exclude: /node_modules/,
       },
       {
         test: /\.js$/,
@@ -65,7 +88,19 @@ module.exports = {
           },
         },
       },
+      {
+        loader: 'webpack-modernizr-loader',
+        exclude: /node_modules/,
+        test: /\.modernizrrc\.js$/,
+        // Uncomment this when you use `JSON` format for configuration
+        // type: 'javascript/auto'
+      },
     ],
+  },
+  resolve: {
+    alias: {
+      modernizr$: path.resolve(__dirname, './src/.modernizrrc.js'),
+    },
   },
   plugins: [
     new BrowserSyncPlugin({
